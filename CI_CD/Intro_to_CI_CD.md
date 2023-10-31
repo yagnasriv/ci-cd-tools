@@ -24,6 +24,26 @@ ________________________________________________________________________________
 
 
 ___________________________________________________________________________________________________
+### About Jenkins
 
+- VCS - Version control systems tools like Github, Bitbucket, Gitlab where your code exists
+- Legacy Tool : 
+    - V1 code - submit to github repo - pushes the changes - Deploy a CI/CD tool example: Jenkins, will tell jenkins to watch for git repo and when ever there is a pull request or new code commit made on this repo on this specific branch, then it will run set of actions.
+    - As part of automation, Jenkins will run all the steps which we require.
+    - jenkins will act as a orchestrator or a pipe or a tunnel. 
+    - if it is a java app, you can integrate you build application in Maven and runs unit tests
+    - SonarQube for code quality
+    - ALM for reporting the errors
+    - After it can be deployed on K8s, Docker or EC2 instance or cloud based VMS
+    - This is why jenkins is called as an Orchestrator which facilitates all these above mentioned tools.
+    - without CI/CD pipelines the delivering of the application process gets delayed.
 
+___________________________________________________________________________________________________
+
+<NOTE: As an App Developer or DEvops Enginerr you push your code which triggers a automatic pipeline either on Jenkins or Github Actions or Azure Devops Pipeline or AWS Code Pipeline, where the infrastructe can be deployed in different stages as Dev, Test, Stage, Prod>
+
+- Usually org divides their environment like Dev, Stage and Prod
+- usually PRod is where the customer can access the End Product. 
+
+___________________________________________________________________________________________________
 
