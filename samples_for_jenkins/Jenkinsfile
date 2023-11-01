@@ -1,15 +1,12 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Checkout') {
-            steps {
-                sshagent(credentials: ['ssh-key-for-jenkins']) {
-                    checkout scm
-                }
-            }
-        }
-
-        // Add more pipeline stages as needed
+  agent {
+    docker { image 'ubuntu:latest' }
+  }
+  stages {
+    stage('stage01') {
+      steps {
+        sh 'ifconfig'
+      }
     }
+  }
 }
