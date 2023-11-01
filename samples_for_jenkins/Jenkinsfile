@@ -1,11 +1,20 @@
 pipeline {
-  agent {
-    docker { image 'ubuntu:latest' }
-  }
+  agent none
   stages {
-    stage('stage01') {
+    stage('Back-end') {
+      agent {
+        docker { image 'maven:3.8.1-adoptopenjdk-11' }
+      }
       steps {
-        sh 'java --version'
+        sh 'mvn --version'
+      }
+    }
+    stage('Front-end') {
+      agent {
+        docker { image 'node:16-alpine' }
+      }
+      steps {
+        sh 'node --version'
       }
     }
   }
