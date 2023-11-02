@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Create S3 Bucket') {
+            steps {
+                script {
+                    def bucketName = "my-jenkins-s3-bucket-yv"  // Replace with your desired bucket name
+                    def region = "us-east-1"  // Replace with your desired AWS region
+
+                    // Check if the S3 bucket already exists
+                    def bucketExists = sh(script: "aws s3api head-bucket --bucket $bucketName --region $region", returnStatus: true)
+
+                    if (bucketExists == 0) {
+                        echo "S3 bucket $bucketName already exists."
+                    } else {
+                        echo "Creating S3 bucket $bucketName in region $region"
+                        sh "aws s3api create-bucket --bucket $bucketName --region $region"
+                    }
+                }
+            }
+        }
+    }
+}
